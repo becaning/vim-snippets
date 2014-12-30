@@ -1,3 +1,11 @@
+About this repo
+===============
+
+这个`repo`fork自[honza/vim-snippets](https://github.com/honza/vim-snippets),然后做了少许修改。
+
+--------------华丽丽的分割线--------------
+------------------------------------------
+
 snipMate & UltiSnip Snippets
 ============================
 
