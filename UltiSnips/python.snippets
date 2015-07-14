@@ -546,14 +546,14 @@ endsnippet
 snippet try1 "Try / Except" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 endsnippet
 
 snippet try2 "Try / Except / Else" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 else:
 	${5:pass}
@@ -562,7 +562,7 @@ endsnippet
 snippet try3 "Try / Except / Finally" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 finally:
 	${5:pass}
@@ -571,7 +571,7 @@ endsnippet
 snippet try4 "Try / Except / Else / Finally" b
 try:
 	${1:pass}
-except${2: ${3:Exception}, ${4:e}}:
+except${2: ${3:Exception} as ${4:e}}:
 	${5:raise}
 else:
 	${6:pass}
@@ -584,14 +584,14 @@ endsnippet
 snippet try "Try / Except" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 endsnippet
 
 snippet try "Try / Except / Else" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 else:
 	${5:pass}
@@ -600,7 +600,7 @@ endsnippet
 snippet try "Try / Except / Finally" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 finally:
 	${5:pass}
@@ -609,7 +609,7 @@ endsnippet
 snippet try "Try / Except / Else / Finally" b
 try:
 	${1:pass}
-except${2: ${3:Exception}, ${4:e}}:
+except${2: ${3:Exception} as ${4:e}}:
 	${5:raise}
 else:
 	${6:pass}
@@ -728,15 +728,15 @@ self.${1}
 endsnippet
 
 snippet p "print"
-print ${1}
+print(${1})
 endsnippet
 
 snippet pr "print "
-print "${1}"
+print("${1}")
 endsnippet
 
 snippet pri "print ''"
-print '${1}'
+print('${1}')
 endsnippet
 
 snippet prt "print trace"
