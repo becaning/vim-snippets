@@ -89,7 +89,7 @@ console.clear();
 endsnippet
 
 snippet cdir "console.dir" b
-console.dir(${1:object});
+console.dir(${1:object})$0
 endsnippet
 
 snippet cdirx "console.dirxml" b
@@ -113,15 +113,15 @@ console.groupEnd();
 endsnippet
 
 snippet ci "console.info" b
-console.info(${1:"${2:value}"});
+console.info(${1:"${2:value}"})$0
 endsnippet
 
 snippet cl "console.log" b
-console.log(${1:"${2:value}"});
+console.log(${1:"${2:value}"})$0
 endsnippet
 
 snippet cd "console.debug" b
-console.debug(${1:"${2:value}"});
+console.debug(${1:"${2:value}"})$0
 endsnippet
 
 snippet cprof "console.profile" b
@@ -168,6 +168,7 @@ snippet uses "use strict"
 ${1}
 endsnippet
 
+
 ########################
 #  React snippets
 ########################
@@ -177,39 +178,45 @@ var cx = React.addons.classSet;
 endsnippet
 
 snippet cdm "component did mount" b
-componentDidMount: function() {
+componentDidMount() {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet cdup "component did update" b
-componentDidUpdate: function(prevProps, prevState) {
+componentDidUpdate(prevProps, prevState) {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet cwm "component will mount" b
-componentWillMount: function() {
+componentWillMount() {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet cwr "component will receive props" b
-componentWillReceiveProps: function(nextProps) {
+componentWillReceiveProps(nextProps) {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet cwun "component will unmount" b
-componentWillUnmount: function() {
+componentWillUnmount() {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet cwu "component will update" b
-componentWillUpdate: function(nextProps, nextState) {
+componentWillUpdate(nextProps, nextState) {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet cx
@@ -223,67 +230,102 @@ forceUpdate(${1:callback});
 endsnippet
 
 snippet gdp "get default props" b
-getDefaultProps: function() {
+getDefaultProps() {
 	return {
 		${1}
 	};
-},$0
+}
+$0
 endsnippet
 
 snippet gis "get initial state" b
-getInitialState: function() {
+getInitialState() {
 	return {
 		${1}: ${2}
 	};
-},$0
+}
+$0
 endsnippet
 
 snippet ism "is mounted"
 isMounted()
 endsnippet
 
-snippet jsx "define jsx dom" b
-/**
- * @jsx React.DOM
- */
+snippet react "define react component" b
+import React { Component } from 'react';
 
-var React = require('react');
+
+export default class ${1:CompName} extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render(){
+		return (
+			${2:<h1>Hello React</h1>}
+		);
+	}
 }
-var ${2:ClassName} = React.createClass({
+endsnippet
 
-render: function() {
-	return (
-		${VISUAL}$4
-	);
+snippet redux "define redux container" b
+import React { Component } from 'react';
+import { connect } from 'react-redux';
+import { pushState } from 'redux-router';
+import { bindActionCreators } from 'redux';
+
+
+@connect(
+	state => {
+		return {
+			${3:router}: state.${4:$3}$5
+		};
+	},
+	dispatch => bindActionCreators(
+	{ pushState$6 },
+	dispatch)
+)
+export default class ${1:CompName} extends Component {
+	static propTypes = {
+	};
+
+	constructor(props) {
+		super(props);
+	}
+
+	render(){
+		return (
+			${7:<h1>Hello React</h1>}
+		);
+	}
 }
-
-});
-$0
-${3:module.exports = $2;}
 endsnippet
 
 snippet pt "propTypes" b
-propTypes: {
+static propTypes = {
 	${1}: React.PropTypes.${2:string}
-},
-endsnippet
-
-snippet rcc "create class/component" b
-var ${1:ClassName} = React.createClass({
-
-	render: function() {
-		return (
-			${VISUAL}$2
-		);
-	}
-});
+};
 $0
 endsnippet
 
+snippet rcc "create class/component" b
+export class ${1} extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render(){
+		return (
+			${1:<h1>Hello</h1>}
+		);
+	}
+}
+endsnippet
+
 snippet ren
-render: function() {
+render() {
 	return (
-		${1:<div />}
+		${1:<h1>Hello</h1>}
 	);
 }$0
 endsnippet
@@ -295,9 +337,10 @@ this.setState({
 endsnippet
 
 snippet scu "should component update"
-shouldComponentUpdate: function(nextProps, nextState) {
+shouldComponentUpdate(nextProps, nextState) {
 	${1}
-},$0
+}
+$0
 endsnippet
 
 snippet props "get property" i
