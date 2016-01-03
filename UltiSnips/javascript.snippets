@@ -282,8 +282,8 @@ import { bindActionCreators } from 'redux';
 		};
 	},
 	dispatch => bindActionCreators(
-	{ pushState$6 },
-	dispatch)
+		{ pushState$6 }, dispatch
+	)
 )
 export default class ${1:CompName} extends Component {
 	static propTypes = {
@@ -309,14 +309,14 @@ $0
 endsnippet
 
 snippet rcc "create class/component" b
-export class ${1} extends Component {
+export class ${1:CompName} extends Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render(){
 		return (
-			${1:<h1>Hello</h1>}
+			${2:<h1>Hello</h1>}
 		);
 	}
 }
